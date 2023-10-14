@@ -1,0 +1,1 @@
+A quick github action job to query logs from a tuya compatible device and save it in a google spreadsheet file.
