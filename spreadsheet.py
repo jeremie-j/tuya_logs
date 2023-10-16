@@ -1,5 +1,6 @@
 import gspread
 from gspread.exceptions import WorksheetNotFound
+from gspread.utils import ValueInputOption
 
 
 class GspreadClient:
@@ -15,7 +16,7 @@ class GspreadClient:
             worksheet = self.spreadsheet.worksheet(worksheet_name)
         except WorksheetNotFound:
             worksheet = self.spreadsheet.add_worksheet(worksheet_name, 1, 1)
-        worksheet.append_rows(rows)
+        worksheet.append_rows(rows, value_input_option=ValueInputOption.user_entered)
 
     def get_last_row_timestamp(self, worksheet_name: str):
         try:
